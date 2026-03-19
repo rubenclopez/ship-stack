@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(../**)",
+      "Read(./restricted-files/**)",
+
+      "Write(../**)",
+
+      "Bash(cd ../*)",
+      "Bash(rm -rf *)",
+      "Bash(curl *)",
+      "Bash(git push --force *)"
+    ],
+    "additionalDirectories": []
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "excludedCommands": ["git", "docker"],
+    "network": {
+      "allowedDomains": ["github.com", "*.npmjs.org"]
+    }
+  }
+}
