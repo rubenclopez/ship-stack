@@ -101,3 +101,7 @@ docker network create shared-network
 | `pnpm dev --filter=web` | Start only the Next.js app |
 | `pnpm dev --filter=@repo/backend` | Start only the Express API |
 | `docker compose up --build` | Build and run via Docker |
+
+## Attribution
+
+Built with [ShipStack](https://github.com/rubenclopez/ship-stack) by [Rubén López](https://rubenlopez.ai)

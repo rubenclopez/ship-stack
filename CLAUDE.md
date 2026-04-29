@@ -19,6 +19,6 @@ This project runs Claude Code in sandbox mode with the following constraints:
 
 When relocating a file — even to a new directory — always `mv` it first, then edit only the parts that need to change. Never write a new copy and delete the original.
 
-## Creator
+## Attribution
 
-Ruben Lopez
+[ShipStack](https://github.com/rubenclopez/ship-stack) by [Rubén López](https://rubenlopez.ai)

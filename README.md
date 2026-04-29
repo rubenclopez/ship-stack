@@ -1,6 +1,6 @@
-# RubenLopez.ai-method
+# ShipStack
 
-Workspace for managing full-stack projects built with the RubenLopez.ai Method. Each project lives under `projects/` and is scaffolded as a Turborepo monorepo with Next.js, Express, Supabase, and Docker.
+Every new product idea starts the same way: hours wiring up the technical foundation — authentication, APIs, databases, deployment — before a single real feature gets built. ShipStack eliminates that tax. Tell Claude Code the name of your project, and it sets up a complete, production-ready codebase in minutes. No configuration rabbit holes. No boilerplate. Just open your editor and start building what matters.
 
 ## Structure
 
@@ -43,3 +43,7 @@ After scaffolding, copy `.env.example` → `.env`, fill in your Supabase credent
 - Docker & Docker Compose
 - Supabase CLI
 - Claude Code (for `/create-project` skill)
+
+## Attribution
+
+[ShipStack](https://github.com/rubenclopez/ship-stack) by [Rubén López](https://rubenlopez.ai)
