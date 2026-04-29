@@ -19,21 +19,27 @@ Run from the repo root:
 ```
 cd projects && npx create-turbo@latest NAME-docker-mono --package-manager pnpm
 rm -fr DIR/apps/docs
-cd SKILL_DIR/skel/apps && cp -fr backend DIR/apps
 ```
 
 This creates: `apps/web` (Next.js), `packages/ui`, `packages/eslint-config`, `packages/typescript-config`.
-This copies: `skel/apps/backend` to `DIR/apps`
 
-Run from the repo root:
+---
+
+## Step 2 — Copy backend app skeleton
+
+```
+cp -r SKILL_DIR/skel/apps/backend/. DIR/apps/backend/
+```
+
+Install backend dependencies:
 ```
 pnpm add express dotenv @supabase/supabase-js --filter @repo/backend
-pnpm add -D tsx typescript @types/express --filter @repo/backend
+pnpm add -D tsx @types/node typescript @types/express tsc-alias --filter @repo/backend
 ```
 
 ---
 
-## Step 2 — Install web app dependencies
+## Step 3 — Install web app dependencies
 
 ```
 pnpm add @supabase/ssr @supabase/supabase-js resend sass validator --filter web # @react-pdf/renderer react-calendar 
@@ -42,16 +48,17 @@ pnpm add -D @types/validator --filter web babel-plugin-react-compiler # @types/r
 
 ---
 
-## Step 3 — Configure `next.config.ts`
+## Step 4 — Copy web app skeleton
 
+Copy all skel files into the generated `apps/web` (adds new directories, overwrites config files):
 ```
-cp SKILL_DIR/skel/apps/web/next.config.ts DIR/apps/web/next.config.ts
+cp -r SKILL_DIR/skel/apps/web/. DIR/apps/web/
 rm DIR/apps/web/next.config.js
 ```
 
 ---
 
-## Step 4 — Initialize Supabase
+## Step 5 — Initialize Supabase
 
 ```
 cd DIR/apps/web && supabase init
@@ -59,34 +66,7 @@ cd DIR/apps/web && supabase init
 
 ---
 
-## Step 5 — Create Supabase client library
-
-```
-mkdir -p DIR/apps/web/src/lib/supabase
-cp SKILL_DIR/skel/apps/web/src/lib/supabase/browser.ts DIR/apps/web/src/lib/supabase/browser.ts
-cp SKILL_DIR/skel/apps/web/src/lib/supabase/server.ts DIR/apps/web/src/lib/supabase/server.ts
-cp SKILL_DIR/skel/apps/web/src/lib/supabase/middleware-client.ts DIR/apps/web/src/lib/supabase/middleware-client.ts
-```
-
----
-
-## Step 6 — Create `src/middleware.ts`
-
-```
-cp SKILL_DIR/skel/apps/web/src/middleware.ts DIR/apps/web/src/middleware.ts
-```
-
----
-
-## Step 7 — Create the Dockerfile
-
-```
-cp SKILL_DIR/skel/apps/web/Dockerfile DIR/apps/web/Dockerfile
-```
-
----
-
-## Step 8 — Create `docker-compose.yaml`
+## Step 6 — Create `docker-compose.yaml`
 
 Copy and substitute the project name (`__NAME__` is the placeholder in the skel file):
 ```
@@ -95,7 +75,7 @@ sed 's/__NAME__/NAME/g' SKILL_DIR/skel/docker-compose.yaml > DIR/docker-compose.
 
 ---
 
-## Step 9 — Create `.env.example` and `README.md`
+## Step 7 — Create `.env.example` and `README.md`
 
 ```
 cp SKILL_DIR/skel/.env.example DIR/.env.example
@@ -104,7 +84,7 @@ sed 's/__NAME__/NAME/g' SKILL_DIR/skel/README.md > DIR/README.md
 
 ---
 
-## Step 10 — Final install & confirm
+## Step 8 — Final install & confirm
 
 ```
 cd DIR && pnpm install

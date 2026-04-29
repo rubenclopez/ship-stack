@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { heartbeatController } from "../controllers/heartbeat.controller";
+import { heartbeatController } from "@/controllers/heartbeat.controller";
 
 const router = Router()
 

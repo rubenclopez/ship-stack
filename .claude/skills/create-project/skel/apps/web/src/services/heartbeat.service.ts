@@ -3,6 +3,6 @@ import { Heartbeat } from "@/types"
 
 export const heartbeatService = {
   async getHeartbeat(): Promise<Heartbeat> {
-    return await heartbeatRepository.getHeartbeat()
-  },
+    return heartbeatRepository.getHeartbeat()
+  }
 }

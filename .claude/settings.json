@@ -34,7 +34,7 @@
     "excludedCommands": ["docker"],
     "filesystem": {
       "allowRead": ["."],
-      "allowWrite": ["."]
+      "allowWrite": [".", "~/.npm"]
     },
     "network": {
       "allowedDomains": ["github.com", "*.npmjs.org"]

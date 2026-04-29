@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express"
-import { heartbeatService } from "../services/heartbeat.service";
+import { heartbeatService } from "@/services/heartbeat.service";
 
 export const heartbeatController = {
   async getHeartbeat(req: Request, res: Response, next: NextFunction) {
