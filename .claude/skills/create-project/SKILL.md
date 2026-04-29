@@ -25,7 +25,15 @@ This creates: `apps/web` (Next.js), `packages/ui`, `packages/eslint-config`, `pa
 
 ---
 
-## Step 2 — Copy backend app skeleton
+## Step 2 — Copy package skeletons
+
+```
+cp -r SKILL_DIR/skel/packages/. DIR/packages/
+```
+
+---
+
+## Step 3 — Copy backend app skeleton
 
 ```
 cp -r SKILL_DIR/skel/apps/backend/. DIR/apps/backend/
@@ -39,16 +47,16 @@ pnpm add -D tsx @types/node typescript @types/express tsc-alias --filter @repo/b
 
 ---
 
-## Step 3 — Install web app dependencies
+## Step 4 — Install web app dependencies
 
 ```
-pnpm add @supabase/ssr @supabase/supabase-js resend sass validator --filter web # @react-pdf/renderer react-calendar 
-pnpm add -D @types/validator --filter web babel-plugin-react-compiler # @types/react-calendar 
+pnpm add @supabase/ssr @supabase/supabase-js resend sass validator --filter web # @react-pdf/renderer react-calendar
+pnpm add -D @repo/types @types/validator babel-plugin-react-compiler --filter web # @types/react-calendar
 ```
 
 ---
 
-## Step 4 — Copy web app skeleton
+## Step 5 — Copy web app skeleton
 
 Copy all skel files into the generated `apps/web` (adds new directories, overwrites config files):
 ```
@@ -58,7 +66,7 @@ rm DIR/apps/web/next.config.js
 
 ---
 
-## Step 5 — Initialize Supabase
+## Step 6 — Initialize Supabase
 
 ```
 cd DIR/apps/web && supabase init
@@ -66,7 +74,7 @@ cd DIR/apps/web && supabase init
 
 ---
 
-## Step 6 — Create `docker-compose.yaml`
+## Step 7 — Create `docker-compose.yaml`
 
 Copy and substitute the project name (`__NAME__` is the placeholder in the skel file):
 ```
@@ -75,7 +83,7 @@ sed 's/__NAME__/NAME/g' SKILL_DIR/skel/docker-compose.yaml > DIR/docker-compose.
 
 ---
 
-## Step 7 — Create `.env.example` and `README.md`
+## Step 8 — Create `.env.example` and `README.md`
 
 ```
 cp SKILL_DIR/skel/.env.example DIR/.env.example
@@ -84,7 +92,7 @@ sed 's/__NAME__/NAME/g' SKILL_DIR/skel/README.md > DIR/README.md
 
 ---
 
-## Step 8 — Final install & confirm
+## Step 9 — Final install & confirm
 
 ```
 cd DIR && pnpm install

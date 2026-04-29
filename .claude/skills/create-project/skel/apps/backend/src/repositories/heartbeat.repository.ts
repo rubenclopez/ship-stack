@@ -1,4 +1,4 @@
-import type { Heartbeat } from "@/types"
+import type { Heartbeat } from "@repo/types"
 
 export const heartbeatRepository = {
   async getHeartbeat(): Promise<Heartbeat> {
