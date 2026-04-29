@@ -6,21 +6,21 @@
       "Bash(npm run *)",
       "Bash(git status)",
       "Bash(git diff *)",
-      "Bash(git log *)"
+      "Bash(git log *)",
+      "Bash(rm *)",
+      "Bash(mv *)",
+      "Edit(./**)"
     ],
     "ask": [
       "Bash(git push *)"
     ],
     "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./secrets/**)",
-      "Read(../**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
       "Read(./restricted-files/**)",
-
+      "Read(../**)",
       "Write(../**)",
-
-      "Bash(cd ../*)",
       "Bash(rm -rf *)",
       "Bash(curl *)",
       "Bash(git push --force *)"
@@ -29,8 +29,13 @@
   },
   "sandbox": {
     "enabled": true,
+    "autoAllowBashIfSandboxed": true,
     "allowUnsandboxedCommands": false,
-    "excludedCommands": ["git", "docker"],
+    "excludedCommands": ["docker"],
+    "filesystem": {
+      "allowRead": ["."],
+      "allowWrite": ["."]
+    },
     "network": {
       "allowedDomains": ["github.com", "*.npmjs.org"]
     }
