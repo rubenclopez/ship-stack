@@ -100,5 +100,5 @@ cd DIR && pnpm install
 
 List the top-level contents of `DIR` and summarize what was created. Remind the user to:
 - Copy `.env.example` → `.env` and fill in values before running Docker
-- Create a Supabase project and apply migrations from `apps/supabase/migrations/`
+- Create a Supabase project and apply migrations from `apps/services/supabase/migrations/`
 - Add protected routes to `PROTECTED_PATHS` in `src/middleware.ts` as needed
