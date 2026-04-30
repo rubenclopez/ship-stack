@@ -69,7 +69,7 @@ rm DIR/apps/web/next.config.js
 ## Step 6 — Initialize Supabase
 
 ```
-cd DIR/apps/web && supabase init
+mkdir -p DIR/apps/services && cd DIR/apps/services && supabase init
 ```
 
 ---
@@ -100,5 +100,5 @@ cd DIR && pnpm install
 
 List the top-level contents of `DIR` and summarize what was created. Remind the user to:
 - Copy `.env.example` → `.env` and fill in values before running Docker
-- Create a Supabase project and apply migrations from `apps/web/supabase/migrations/`
+- Create a Supabase project and apply migrations from `apps/supabase/migrations/`
 - Add protected routes to `PROTECTED_PATHS` in `src/middleware.ts` as needed
